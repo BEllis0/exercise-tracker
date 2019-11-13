@@ -25,7 +25,7 @@ router.route('/add').post((req, res) => {
         .catch(err => res.status(400).json("Error: " + err));
 });
 
-//handles getting the exercises
+//handles getting the exercises by unique id
 router.route('/:id').get((req, res) => {
     Exercise.findById(req.params.id)
     .then(exercise => res.json(exercise))
