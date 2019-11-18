@@ -10,14 +10,23 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = process.env.ATLAS_URI;
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  console.log("Succesful db connection");
-  client.close();
-});
+// set the connection options, which will be applied to all connections
+
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
+
+const uri = 'mongodb+srv://brandonEllis:SkiClub17@cluster0-myn2v.gcp.mongodb.net/test?retryWrites=true&w=majority';
+//const uri = process.env.ATLAS_URI;
+mongoose.connect(uri)
+    .then(() => console.log("MongoDB database connection established successfully"))
+    .catch(err => console.log(err));
+
+// const connection = mongoose.connection;
+// connection.once('open', () => {
+//     console.log("MongoDB database connection established successfully");
+// });
 
 //routes
 const exercisesRouter = require('./routes/exercises');
