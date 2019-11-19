@@ -11,7 +11,6 @@ app.use(cors());
 app.use(express.json());
 
 // set the connection options, which will be applied to all connections
-
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
@@ -21,11 +20,6 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri)
     .then(() => console.log("MongoDB database connection established successfully"))
     .catch(err => console.log(err));
-
-// const connection = mongoose.connection;
-// connection.once('open', () => {
-//     console.log("MongoDB database connection established successfully");
-// });
 
 //routes
 const exercisesRouter = require('./routes/exercises');
