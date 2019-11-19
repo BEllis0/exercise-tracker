@@ -17,8 +17,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-const uri = 'mongodb+srv://brandonEllis:SkiClub17@cluster0-myn2v.gcp.mongodb.net/test?retryWrites=true&w=majority';
-//const uri = process.env.ATLAS_URI;
+const uri = process.env.ATLAS_URI;
 mongoose.connect(uri)
     .then(() => console.log("MongoDB database connection established successfully"))
     .catch(err => console.log(err));
