@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://bellis0.github.io/exercise-tracker",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.1.1",
     "react": "^16.11.0",
